@@ -15,6 +15,7 @@ import {ReturningStatementNotSupportedError} from "../error/ReturningStatementNo
 import {ReturningResultsEntityUpdator} from "./ReturningResultsEntityUpdator";
 import {SqljsDriver} from "../driver/sqljs/SqljsDriver";
 import {MysqlDriver} from "../driver/mysql/MysqlDriver";
+import {WebSqlDriver} from "../driver/websql/WebSqlDriver";
 import {BroadcasterResult} from "../subscriber/BroadcasterResult";
 import {AbstractSqliteDriver} from "../driver/sqlite-abstract/AbstractSqliteDriver";
 import {OrderByCondition} from "../find-options/OrderByCondition";
@@ -392,6 +393,7 @@ export class UpdateQueryBuilder<Entity> extends QueryBuilder<Entity> implements 
                                 this.connection.driver instanceof AuroraDataApiDriver ||
                                 this.connection.driver instanceof OracleDriver ||
                                 this.connection.driver instanceof AbstractSqliteDriver ||
+                                this.connection.driver instanceof WebSqlDriver ||
                                 this.connection.driver instanceof SapDriver
             ? 0 : Object.keys(this.expressionMap.nativeParameters).length;
         if (metadata) {
@@ -435,6 +437,7 @@ export class UpdateQueryBuilder<Entity> extends QueryBuilder<Entity> implements 
                             this.connection.driver instanceof AuroraDataApiDriver ||
                             this.connection.driver instanceof OracleDriver ||
                             this.connection.driver instanceof AbstractSqliteDriver ||
+                            this.connection.driver instanceof WebSqlDriver ||
                             this.connection.driver instanceof SapDriver) {
                             newParameters[paramName] = value;
                         } else {
@@ -491,6 +494,7 @@ export class UpdateQueryBuilder<Entity> extends QueryBuilder<Entity> implements 
                         this.connection.driver instanceof AuroraDataApiDriver ||
                         this.connection.driver instanceof OracleDriver ||
                         this.connection.driver instanceof AbstractSqliteDriver ||
+                        this.connection.driver instanceof WebSqlDriver ||
                         this.connection.driver instanceof SapDriver) {
                         newParameters[key] = value;
                     } else {
@@ -513,6 +517,7 @@ export class UpdateQueryBuilder<Entity> extends QueryBuilder<Entity> implements 
             this.connection.driver instanceof AuroraDataApiDriver ||
             this.connection.driver instanceof OracleDriver ||
             this.connection.driver instanceof AbstractSqliteDriver ||
+            this.connection.driver instanceof WebSqlDriver ||
             this.connection.driver instanceof SapDriver) {
             this.expressionMap.nativeParameters = Object.assign(newParameters, this.expressionMap.nativeParameters);
         }

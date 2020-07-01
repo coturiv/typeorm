@@ -1,6 +1,7 @@
 import {MissingDriverError} from "../error/MissingDriverError";
 import {CockroachDriver} from "./cockroachdb/CockroachDriver";
 import {MongoDriver} from "./mongodb/MongoDriver";
+import {WebSqlDriver} from "./websql/WebSqlDriver";
 import {SqlServerDriver} from "./sqlserver/SqlServerDriver";
 import {OracleDriver} from "./oracle/OracleDriver";
 import {SqliteDriver} from "./sqlite/SqliteDriver";
@@ -52,6 +53,8 @@ export class DriverFactory {
                 return new OracleDriver(connection);
             case "mssql":
                 return new SqlServerDriver(connection);
+            case "websql":
+                return new WebSqlDriver(connection);
             case "mongodb":
                 return new MongoDriver(connection);
             case "expo":

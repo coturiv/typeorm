@@ -14,6 +14,7 @@ export type DatabaseType =
     "sqljs"|
     "oracle"|
     "mssql"|
+    "websql"|
     "mongodb"|
     "aurora-data-api"|
     "aurora-data-api-pg"|
