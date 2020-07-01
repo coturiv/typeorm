@@ -1,6 +1,5 @@
 {
-  "name": "typeorm",
-  "private": true,
+  "name": "@coturiv/typeorm",
   "version": "0.2.25",
   "description": "Data-Mapper ORM for TypeScript, ES7, ES6, ES5. Supports MySQL, PostgreSQL, MariaDB, SQLite, MS SQL Server, Oracle, MongoDB databases.",
   "license": "MIT",
@@ -24,10 +23,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/typeorm/typeorm.git"
+    "url": "https://github.com/coturiv/typeorm.git"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/"
   },
   "bugs": {
-    "url": "https://github.com/typeorm/typeorm/issues"
+    "url": "https://github.com/coturiv/typeorm/issues"
   },
   "tags": [
     "orm",
